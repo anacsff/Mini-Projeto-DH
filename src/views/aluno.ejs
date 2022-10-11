@@ -1,0 +1,47 @@
+<%- include("./partials/head") %>
+<%- include("./partials/header")%>
+
+<main id="lista-usuarios">
+    <h1>Lista de alunos matriculados</h1>
+    <% if(alunos.length > 0){%>
+        <div class="container-tabela">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data de nascimento</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Curso</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let aluno of alunos) { %>
+
+                        <tr>
+                            <td><%= aluno.nome%></td>
+                            <td><%= aluno.data%></td>
+                            <td><%= aluno.telefone%></td>
+                            <td><%= aluno.email%></td>
+                            <td><%= aluno.curso%></td>
+                            <td class="tabela-alunos">
+                                <a class="link-visu" href="/aluno/<%= aluno.id %>">Visualizar</a>
+                                <a class="link-edit" href="/aluno/editar/<%= aluno.id %>">Editar</a>
+                                <a class="link-del" href="/aluno/excluir/<%= aluno.id %>">Excluir</a>
+                            </td>
+                        </tr>
+
+                    <% } %>
+        
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <h2 class="erro">Nenhum aluno matriculado</h2>
+    <% } %>
+</main>
+
+
+<%- include("./partials/footer") %>
