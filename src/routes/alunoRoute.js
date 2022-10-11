@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const alunoController = require("../controllers/AlunoController");
 
-router.get("/", alunoController.index);
-router.get("/:id", alunoController.show);
-router.post("/", alunoController.store);
-router.patch("/:id", alunoController.update)
-router.put("/:id", alunoController.update)
-router.delete("/:id", alunoController.destroy)
+router.get("/alunos", alunoController.index);
+router.get("/aluno/:id", alunoController.show);
+router.post("/aluno", alunoController.store);
+router.patch("/aluno/:id", alunoController.update)
+router.put("/aluno/:id", alunoController.update)
+router.delete("/aluno/:id", alunoController.destroy)
 
 
 

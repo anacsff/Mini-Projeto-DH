@@ -1,4 +1,6 @@
+//Rodando a configuração do dotenv
 require("dotenv").config();
+
 const database = {
   username: process.env.DB_USERNAME || "root",
   password: process.env.DB_PASSWORD || "",

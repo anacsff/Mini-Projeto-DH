@@ -20,10 +20,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/", indexRoute);
-app.use("/alunos", alunoRoute);
+app.use("/area-do-professor", alunoRoute);
 
 
 
 app.listen(port, ()=>{
-    console.log("Estamos rodando na porta" + port)
+    console.log("Estamos rodando na porta " + port)
 })
