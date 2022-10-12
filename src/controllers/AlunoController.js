@@ -1,47 +1,35 @@
-const Sequelize = require("sequelize");
-const configDB = require("../config/database");
-//Inicializando a classe do Sequelize para lidar com o Banco de Dados
-const db = new Sequelize(configDB);
-
-const alunos = [{
-    id: 1,
-    nome: "Ana Carolina de Souza Fonseca",
-    data: "08/10/1998",
-    telefone: "(11)93469-8231",
-    email: "anacsfonseca@hotmail.com.br",
-    curso: "Desenvolvimento Web"
-},
-{
-    id: 2,
-    nome: "Ana Carolina de Souza Fonseca",
-    data: "08/10/1998",
-    telefone: "(11)93469-8231",
-    email: "anacsfonseca@hotmail.com.br",
-    curso: "Desenvolvimento Web"
-},
-{ 
-    id: 3,
-    nome: "Ana Carolina de Souza Fonseca",
-    data: "08/10/1998",
-    telefone: "(11)93469-8231",
-    email: "anacsfonseca@hotmail.com.br",
-    curso: "Desenvolvimento Web"
-},
-]
-
+const db = require("../config/sequelize");
+const Aluno = require("../models/Aluno");
+const { Op } = require("sequelize"); 
 
 
 const alunoController = {
     index: async (req, res) => {
-        // return res.render("aluno", { title: "Lista de Alunos", alunos: alunos});
-
+        const { search } = req.query;
         try {
-            const alunos = await db.query(
-                "SELECT * FROM alunos;", {
-                    type: Sequelize.QueryTypes.SELECT,
-
-                }
-            );
+            //RAW QUERY
+            // const alunos = await db.query(
+            //     "SELECT * FROM alunos;", {
+            //         type: Sequelize.QueryTypes.SELECT,
+            //     }
+            // );
+            let where = {};
+            if(search){
+                where = {
+                    nome: {
+                        [Op.like]: `%${search}%`,
+                    },
+                } 
+            }
+            const alunos = await Aluno.findAll({
+                where,
+                limit: 10,
+                order: [
+                    ["nome", "ASC"], 
+                    ["data_nascimento", "ASC"]
+                ]
+            });
+            
             res.status(200).json({ data: alunos, message: "Busca realizada com sucesso!"});
         } catch (error) {
             console.log(error);
@@ -49,31 +37,35 @@ const alunoController = {
         }
     },
     show: async (req, res) => {
-        // const { id } = req.params;
-        // const alunoResult = alunos.find((aluno) => aluno.id === parseInt(id));
-        // if(!alunoResult){
-        //     return res.send("Aluno não encontrado!")
-        // }
+        
         const {id} = req.params;
         try {
-            const alunos = await db.query(`SELECT * FROM alunos WHERE id = :id`, {
-                replacements:{
+            //RAW QUERY
+            // const alunos = await db.query(`SELECT * FROM alunos WHERE id = :id`, {
+            //     replacements:{
+            //         id,
+            //     },
+            //     type: Sequelize.QueryTypes.SELECT,
+
+            // });
+
+            const aluno = await Aluno.findOne({
+                where: {
                     id,
                 },
-                type: Sequelize.QueryTypes.SELECT,
-
             });
-            console.log(alunos)
-            if(alunos.length === 0){
-                throw Error("STUDENT_NOT_FOUND")
-            }
-            res.status(200).json({data: alunos[0]});
+
+            console.log(aluno)
+            if(!aluno){
+                throw Error("Nenhum aluno encontrado");
+            };
+            res.status(200).json({data: aluno});
         } catch (error) {
             console.log(error);
             if(error.message === "STUDENT_NOT_FOUND"){
                 res.status(400).json({message: "Aluno não encontrado"});
             }else{
-                res.status(400).json({message: "Erro ao encontrar aluno"});
+                res.status(400).json({message: "Erro ao buscar aluno"});
             }
 
         }
@@ -81,13 +73,23 @@ const alunoController = {
     store: async (req, res) => {
         const { nome, email, data_nascimento, celular, curso_id } = req.body;
         try {
-            const alunos = await db.query(`INSERT INTO alunos (nome, email, data_nascimento, celular, curso_id) 
-            VALUES (:nome, :email, :data_nascimento, :celular, :curso_id)`, {
-                replacements: {
-                    nome, email, data_nascimento, celular, curso_id
-                },
-                    type: Sequelize.QueryTypes.INSERT,
+            //RAW QUERY
+            // const alunos = await db.query(`INSERT INTO alunos (nome, email, data_nascimento, celular, curso_id) 
+            // VALUES (:nome, :email, :data_nascimento, :celular, :curso_id)`, {
+            //     replacements: {
+            //         nome, email, data_nascimento, celular, curso_id
+            //     },
+            //         type: Sequelize.QueryTypes.INSERT,
+            // });
+
+            const alunos = await Aluno.create({
+                nome,
+                email,
+                data_nascimento,
+                celular,
+                curso_id
             });
+
             res.status(201).json({message: "Aluno matriculado com sucesso!"});
             console.log(alunos);
         } catch (error) {
@@ -101,31 +103,42 @@ const alunoController = {
             if (!nome && !email && !data_nascimento && !celular && !curso_id){
                 throw Error("Nenhuma informação para atualizar");
             }
-            let query = "UPDATE alunos SET ";
+            //RAW QUERY
+            // let query = "UPDATE alunos SET ";
             
-            if(nome) query += "name = :name";
-            if(email) {
-                if(nome) query += ", ";
-                query += "email = :email";
-            };
-            if(data_nascimento) {
-                if(nome || email) query += ", ";
-                query += "data_nascimento = :data_nascimento";
-            };
-            if(celular) {
-                if(nome || email || data_nascimento) query += ", ";
-                query += "celular = :celular";
-            };
-            if(curso_id) {
-                if(nome || email || data_nascimento || celular) query += ", ";
-                query += "curso_id = :curso_id"
-            };
-            query += " WHERE id = :id";
+            // if(nome) query += "nome = :nome";
+            // if(email) {
+            //     if(nome) query += ", ";
+            //     query += "email = :email";
+            // };
+            // if(data_nascimento) {
+            //     if(nome || email) query += ", ";
+            //     query += "data_nascimento = :data_nascimento";
+            // };
+            // if(celular) {
+            //     if(nome || email || data_nascimento) query += ", ";
+            //     query += "celular = :celular";
+            // };
+            // if(curso_id) {
+            //     if(nome || email || data_nascimento || celular) query += ", ";
+            //     query += "curso_id = :curso_id"
+            // };
+            // query += " WHERE id = :id";
 
-            const alunos = db.query(query, {
-                replacements: {
-                    nome, email, data_nascimento, celular, curso_id, id},
-                type: Sequelize.QueryTypes.UPDATE,
+            // const alunos = db.query(query, {
+            //     replacements: {
+            //         nome, email, data_nascimento, celular, curso_id, id},
+            //     type: Sequelize.QueryTypes.UPDATE,
+            // });
+
+            const alunos = await Aluno.update({
+                nome, 
+                email,
+                data_nascimento,
+                celular,
+                curso_id,
+            },{
+                where: {id},
             });
             console.log(alunos);
             res.status(200).json({message: "Matricula alterada com sucesso!"});
@@ -139,15 +152,20 @@ const alunoController = {
     destroy: async (req, res) => {
         const { id } = req.params;
         try {
-        const alunos = await db.query("DELETE FROM alunos WHERE id = :id", {
-            replacements: { id },
-            type: Sequelize.QueryTypes.DELETE,
-        });
-        console.log(alunos);
-        res.status(200).json({ message: "Aluno deletado com sucesso!" });
-        } catch (error) {
-        console.log(error);
-        res.status(400).json({ message: "Erro ao deletar aluno" });
+            //RAW QUERY
+            // const alunos = await db.query("DELETE FROM alunos WHERE id = :id", {
+            //     replacements: { id },
+            //     type: Sequelize.QueryTypes.DELETE,
+            // });
+
+            const alunos = await Aluno.destroy({
+                where: {id}
+            });
+            console.log(alunos);
+            res.status(200).json({ message: "Aluno deletado com sucesso!" });
+            } catch (error) {
+            console.log(error);
+            res.status(400).json({ message: "Erro ao deletar aluno" });
         }
             
         
