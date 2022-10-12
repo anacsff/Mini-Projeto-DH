@@ -1,6 +1,6 @@
 const db = require("../config/sequelize");
 const Sequelize = require("sequelize");
-const { SequelizeScopeError } = require("sequelize");
+
 
 const Aluno = db.define("Aluno", {
     id: {
@@ -33,5 +33,6 @@ const Aluno = db.define("Aluno", {
 },{
     timestamps: false,
 });
+
 
 module.exports = Aluno;

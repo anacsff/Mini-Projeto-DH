@@ -9,11 +9,13 @@ USE apollotech_db;
 -- Cria tabela de cursos
 CREATE TABLE cursos(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50)
+	nome_curso VARCHAR(50)
 );
 
+SELECT * FROM cursos;
+
 -- Inserindo cursos na tabela cursos
-INSERT INTO cursos  (nome)
+INSERT INTO cursos  (nome_curso)
 VALUES
 	("Desenvolvimento Web"),
     ("Desenvolvimento Android Mobile"),
@@ -39,4 +41,11 @@ VALUES
     ("Nicollas Geronassi da Silva", "nicollasgs@gmail.com", "2004-02-04", "11913523160", 5),
     ("Duda Souza", "mariadudinha2010@hotmail.com", "2010-08-17", "11934689213", 4);
     
-SELECT * FROM alunos
+SELECT * FROM alunos;
+
+-- Lista de cursos concatenado com alunos
+SELECT * FROM cursos
+INNER JOIN alunos ON cursos.id = alunos.curso_id;
+
+
+
