@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.titulo{
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+
+/* Barra de navegação */
+#navbar{
+  width: 100%;
+  background: #2a2a2a;
+  color: #eee;  
+  height: 80px;
+  position: fixed;
+}
+
+#navbar-container{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    font-size: 2rem;
+}
+#navbar-itens{
+    display: flex;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+#navbar-itens li{
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+/* Banner */
+#banner{
+    background-color: #1c2c50;
+    position: relative;
+    top: 80px;
+    /* height: 115vh; */
+    display: flex;
+
+    justify-content: center;
+    /* align-items: center; */
+    /* background: url("../../img/banner.png") no-repeat center center/cover; */
+    /* width: 100%; */
+
+}
+
+.banner-container img{ 
+    width: 100%;
+    object-fit: cover;
+    /* margin-bottom: 50px; */
+}
+
+
+/* Nossos cursos */
+#cursos{
+    position: relative;
+    top: 25px;
+    width: 100%;
+    background: #e5e5e5;
+    color: #1c2c50;
+    padding: 50px;
+}
+.cursos-container{
+    width: 100%;
+    margin: auto;
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+    text-align: center;
+    
+    justify-content: center;
+
+    /* align-items: center; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+
+    
+}
+
+.cursos-container span{
+    color: #eee;
+    font-size: 2rem;
+}
+
+.curso{
+    display: flex;
+    flex-direction: column;
+    background: #557cd8;
+    padding: 50px;
+    border-radius: 5px; 
+}
+/* Vantagens do curso */
+
+#vantagens{
+
+    width: 100%;
+    background: #1c2c50;
+    color: #eee;
+    padding: 50px;
+}
+
+.vantagens-container{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: center;
+
+
+}
+
+.vantagem{
+    display: flex;
+    flex-direction: column;
+    background: #557cd8;
+    padding: 50px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.vantagens-titulo{
+    /* flex-direction: row; */
+    font-size: 2.8rem;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Depoimentos dos alunos */
+
+#depoimentos{
+    width: 100%;
+    background-color: #e5e5e5;
+    color: #eee;
+    padding: 50px;
+
+}
+
+#depoimentos .titulo{
+    color: #1c2c50;
+
+}
+.depoimentos-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.nome-aluno{
+    font-size: 2.5rem;
+    /* display: flex; */
+}
+.depoimento{
+    width: 80%;
+
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    padding: 15px;
+    margin: 15px 0;
+    background: #1c2c50;
+    border-radius: 10px;
+}
+
+.foto-aluno{
+    height: 200px;
+    width: auto;
+    border-radius: 50%;
+    margin: 15px;
+
+}
+
+/* footer */
+
+footer{
+    background-color: #2a2a2a;
+    color: #eee;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+@media (max-width: 1230px) {
+    .cursos-container{
+        
+        grid-template-columns: repeat(auto-fit, 345px);
+    }
+    .vantagens-container{
+        grid-template-columns: repeat(auto-fit, 345px);
+        
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    #navbar{
+        height: 220px;
+        position: static;
+        
+        
+        
+    }
+
+    #navbar-container{
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    #navbar-itens{
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        font-size: 1rem;
+        
+    }
+
+    #navbar-itens li:nth-child(2) {
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    #banner{
+        top:0px;
+    }
+    #cursos{
+        top: 0;
+    }
+    /* .cursos-container{
+        /* grid-template-columns: 1fr; */
+
+    
+
+
+    .vantagens-container{
+        grid-template-columns: 1fr;
+    }
+
+    .vantagens-container .vantagem:nth-child(2){
+        margin: 15px 0;
+    }
+
+    
+
+    .depoimento{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* @media (max-width: 1230px) and (min-width: 769px) {
+    .cursos-container{
+        
+        grid-template-columns: repeat(auto-fit, 345px);
+    }
+} */

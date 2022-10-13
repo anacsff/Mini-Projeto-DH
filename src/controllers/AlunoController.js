@@ -1,5 +1,6 @@
 const db = require("../config/sequelize");
 const Aluno = require("../models/Aluno");
+const Curso = require("../models/Curso");
 const { Op } = require("sequelize"); 
 
 
@@ -21,16 +22,18 @@ const alunoController = {
                     },
                 } 
             }
+            const cursos = await Curso.findAll();
+            
             const alunos = await Aluno.findAll({
                 where,
-                limit: 10,
+                limit: 15,
                 order: [
                     ["nome", "ASC"], 
                     ["data_nascimento", "ASC"]
                 ]
             });
-            
-            res.status(200).json({ data: alunos, message: "Busca realizada com sucesso!"});
+            res.render("aluno.ejs", {title: "Área do Professor", alunos, cursos});
+            // res.status(200).json({ data: alunos, message: "Busca realizada com sucesso!"});
         } catch (error) {
             console.log(error);
             res.status(400).json({message: "Erro ao buscar alunos"});

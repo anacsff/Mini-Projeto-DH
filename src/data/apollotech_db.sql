@@ -18,8 +18,9 @@ SELECT * FROM cursos;
 INSERT INTO cursos  (nome_curso)
 VALUES
 	("Desenvolvimento Web"),
-    ("Desenvolvimento Android Mobile"),
     ("Desenvolvimento Back-end"),
+    ("Desenvolvimento Mobile iOS"),
+    ("Desenvolvimento Mobile Android"),
     ("Segurança da Informação"),
     ("UX/UI Designer");
     
@@ -39,7 +40,7 @@ VALUES
 	("Ana Carolina de Souza Fonseca", "anacsfonseca@hotmail.com.br", "1998-10-08", "11934698231", 1),
     ("Inês de Souza", "mi.souza2011@gmail.com", "1968-07-08", "11933543675", 2),
     ("Nicollas Geronassi da Silva", "nicollasgs@gmail.com", "2004-02-04", "11913523160", 5),
-    ("Duda Souza", "mariadudinha2010@hotmail.com", "2010-08-17", "11934689213", 4);
+    ("Eduarda Souza", "mariadudinha2010@hotmail.com", "2002-08-17", "11934689213", 4);
     
 SELECT * FROM alunos;
 

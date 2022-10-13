@@ -13,7 +13,9 @@ const Curso = db.define("Curso", {
         type: Sequelize.DataTypes.STRING(100),
         allowNull: false,
     },
-}, {})
+}, {
+    timestamps: false,
+})
 
 Curso.hasMany(Aluno, {
     foreignKey: "curso_id",
