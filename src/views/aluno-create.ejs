@@ -2,29 +2,56 @@
 <!-- <%- include("./partials/header") %> -->
 
 
-<main>  
-    <div class="container">
-        <h1 class="">Matricular novo aluno</h1>
-        <!-- <% if(locals.error) { %>
-          <h2 class="">
-            <%= error.message %>
-          </h2>
-          <% } %> -->
-            <form action="/product-adm/product-create" method="POST">
-              <input class="form-control" type="text" name="name" placeholder="Name">
-              <input class="form-control" type="email" name="email"
-                placeholder="email">
-              <input class="form-control" type="date" name="data_nascimento"
-              <input class="form-control" type="tel" name="celular" placeholder="Telefone Celular">
-              <input class="form-control" type="number" name="curso_id">
-            
-            
+    <main>  
+        <nav id="navbar">
+          <div id="navbar-container">
+              <h1 class="logo">Apollo TECH</h1>
+              <ul id="navbar-itens">
+                  <li><a href="/">Início</a></li>
+                  <li><a href="">Cursos</a></li>
+                  <li><a href="/alunos">Área do Professor</a></li>
+              </ul>
+          </div>
+      </nav>
+        <div class="formulario-create">
+          
+          <h1 class="">Matricular novo aluno</h1>
+            <form action="/alunos/criar" method="POST">
+                <div>
+                    <label for="nome">Nome do Aluno: </label>
+                    <input value="<%= aluno.nome %>" type="text" name="nome" placeholder="Nome" />
+                </div>
 
-              <button type="submit" class="">Salvar</button>
+                <div>
+
+                    <label for="email">Email cadastrado: </label>
+                    <input value="<%= aluno.email %>" type="email" name="email" placeholder="Email" />
+                </div>
+                <div>
+                    <label for="data_nascimento">Data de Nascimento: </label>
+                    <input value="<%= aluno.data_nascimento %>" type="date" name="data_nascimento"  />
+
+                </div>
+                <div>
+                    <label for="celular">Telefone para contato: </label>
+                    <input value="<%= aluno.celular %>" type="tel" name="celular" placeholder="Numero do celular" />
+
+                </div>
+                <div>
+                    <label for="curso_id">Curso:</label>
+                    <input value="<%= aluno.curso_id %>" type="number" name="curso_id" placeholder="Id do Curso" />
+
+                </div>
+                        
+            
+                
+                <button type="submit" class="salvar-btn">Salvar</button>
             </form>
-      </div>
-    
-</main>
+
+        </div>
+            
+            
+    /main>
 
 
 <%- include("./partials/footer") %>

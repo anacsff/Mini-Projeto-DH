@@ -54,11 +54,12 @@ td:hover{
 
 }
 #tabela-alunos{
-    width: 80vw;
+    /* width: 80vw; */
     position: relative;
     top: 80px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
+    justify-content: center;
     
 }
 
@@ -67,11 +68,8 @@ td:hover{
     margin-top: 20px;
 }
 
-.container-tabela{
-    display: flex;
-    justify-content: center;
-    /* position: absolute; */
-}
+
+
 
 .link-visu{
     background-color: #557cd8;
@@ -91,4 +89,37 @@ td:hover{
     border-radius: 5px;
     color: white;
 
+}
+
+@media screen and (max-width: 768px){
+    #tabela-alunos{
+        /* width: 80vw; */
+        position: relative;
+        top: 220px;
+    }
+    .container-tabela{
+        /* display: flex; */
+        /* justify-content: center; */
+        overflow-x: auto;
+    }
+}
+@media (max-width: 1030px) {
+    .container-tabela{
+        /* display: flex; */
+        /* justify-content: center; */
+        overflow-x: auto;
+    }
+    
+    
+    .acoes{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    #navbar{
+        position: absolute;
+        /* padding-bottom: 50px; */
+    }
+
+    
 }

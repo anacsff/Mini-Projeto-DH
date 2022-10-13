@@ -203,7 +203,7 @@ const alunoController = {
     },
     delete: async (req,res) => {
         const {id} = req.params;
-        const aluno = await Aluno.destroy({
+        const aluno = await Aluno.findOne({
             where: {
                 id,
             },

@@ -1,0 +1,83 @@
+#atualizar{
+    /* display: flex; */
+    justify-content: center;
+}
+.formulario h1{
+    text-align: center;
+    color: #1c2c50;
+    margin: 10px;
+}
+.formulario{
+    /* display: flex; */
+    width: 70vw;
+    /* height: auto; */
+    position: relative;
+    justify-content: center;
+    top: 100px;
+    text-align: center;
+    width: 80vw;
+    background-color: #e5e5e5;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    padding: 25px 50px;
+}
+
+.formulario label{
+    position: relative;
+    /* display: flex; */
+    padding: 5px 10px;
+    /* display: inline-block; */
+
+    color: #1c2c50;
+    text-decoration: underline;
+    font-weight: bold;
+    
+
+}
+.formulario input{
+    position: relative;
+
+    /* padding-left: 10px; */
+    /* display: flex; */
+    /* display: inline-block; */
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 12px 20px;
+    /* display: block; */
+    width: 40%;
+    height: auto;
+    margin: 5px;
+    /* position: absolute; */
+
+}
+
+.formulario div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.update-btn{
+    display: flex;
+    background-color: #1c2c50;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+}
+@media screen and (max-width: 768px) {
+    .formulario{
+        /* display: inline-block; */
+        width: 100%;
+        top: 230px;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    form, input{
+
+        width: 100%;
+    }
+
+}

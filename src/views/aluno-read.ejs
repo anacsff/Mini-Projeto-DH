@@ -1,18 +1,50 @@
 <%- include("./partials/head") %>
-<!-- <%- include("./partials/header") %> -->
 
-<main>
+<main id="visualizar">
+
+    <nav id="navbar">
+        <div id="navbar-container">
+            <h1 class="logo">Apollo TECH</h1>
+            <ul id="navbar-itens">
+                <li><a href="/">Início</a></li>
+                <li><a href="">Cursos</a></li>
+                <li><a href="/alunos">Área do Professor</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <h1>Visualizar matrícula do aluno</h1>
     <% if(locals.aluno){ %>
-        <div>
-        <img src="/public/img/aluno.png" alt="">
-        <span><%= aluno.nome %> </span>
-        <span><%= aluno.email %></span>
-        <span><%= aluno.data_nascimento %></span>
-        <span><%= aluno.celular %></span>
-        <span><%= aluno.curso_id %></span>
+        <div id="aluno-read">
+            <div class="iconefoto">
+                <img  src="/img/aluno.png" alt="" ">
+                
+            </div>
+            <div>
+                <span class="info">Nome do Aluno: </span>
+                <span><%= aluno.nome %> </span>
 
-        
+            </div>
+            <div>
+                <span class="info">E-mail cadastrado: </span>
+                <span><%= aluno.email %></span>
+            </div>
+            <div>
+                <span class="info">Data de nascimento: </span>
+                <span><%= aluno.data_nascimento %></span>
+                
+            </div>
+            <div>
+                <span class="info">Telefone para contato: </span>
+                <span><%= aluno.celular %></span>
+
+            </div>
+            <div>
+                <span class="info">Curso: </span>
+                <span><%= aluno.curso_id %></span>
+            </div>
+
+            
         </div>
     <% } else {%>
         <h2 class="error-alert">Usuário não encontrado por motivos do além</h2>

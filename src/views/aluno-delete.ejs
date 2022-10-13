@@ -1,22 +1,54 @@
 <%- include("./partials/head") %>
 <!-- <%- include("./partials/header") %> -->
 
-<main>
-    <h1>Deletar usuário</h1>
-    <% if(locals.aluno){ %>
-        <div>
-        <img src="../../public/img/aluno.png" alt="">
-        <span><%= aluno.nome %></span>
-        <span><%= aluno.email %></span>
-        <span><%= aluno.data_nascimento %></span>
-        <span><%= aluno.celular %></span>
-        <span><%= aluno.curso_id %></span>
+<main id="deletar">
 
+    <nav id="navbar">
+        <div id="navbar-container">
+            <h1 class="logo">Apollo TECH</h1>
+            <ul id="navbar-itens">
+                <li><a href="/">Início</a></li>
+                <li><a href="">Cursos</a></li>
+                <li><a href="/alunos">Área do Professor</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <% if(locals.aluno){ %>
+        <div id="aluno-delete"></div>
+            <div class="iconefotodel">
+                <h1>Deletar usuário</h1>
+                <img  src="/img/aluno.png" alt="" ">
+                    
+                </div>
+                <div>
+                    <span class="info">Nome do Aluno: </span>
+                    <span><%= aluno.nome %> </span>
+
+                </div>
+                <div>
+                    <span class="info">E-mail cadastrado: </span>
+                    <span><%= aluno.email %></span>
+                </div>
+                <div>
+                    <span class="info">Data de nascimento: </span>
+                    <span><%= aluno.data_nascimento %></span>
+                    
+                </div>
+                <div>
+                    <span class="info">Telefone para contato: </span>
+                    <span><%= aluno.celular %></span>
+
+                </div>
+                <div>
+                    <span class="info">Curso: </span>
+                    <span><%= aluno.curso_id %></span>
+            </div>
         </div>
         <form action="/alunos/excluir/<%= aluno.id %>?_method=delete" method="post">
         <h2 class="error-alert">Deseja deletar esse aluno?</h2>
         <a href="/alunos"><button type="button">Não</button></a>
-        <button type="submit">Sim</button>
+        <button type="submit" class="delete-btn">Sim</button>
         </form>
     <% } else {%>
         <h2 class="error-alert">Usuário não encontrado por motivos do além</h2>

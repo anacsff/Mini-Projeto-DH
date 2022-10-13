@@ -6,9 +6,9 @@
         <div id="navbar-container">
             <h1 class="logo">Apollo TECH</h1>
             <ul id="navbar-itens">
-                <li><a href="">Início</a></li>
+                <li><a href="/">Início</a></li>
                 <li><a href="">Cursos</a></li>
-                <li><a href="">Área do Professor</a></li>
+                <li><a href="/alunos">Área do Professor</a></li>
             </ul>
         </div>
     </nav>
@@ -23,7 +23,7 @@
         <% if(alunos.length > 0){%>
             <div class="container-tabela">
     
-                <table>
+                <table class="tabela">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -43,7 +43,7 @@
                                 <td class="data"><%= aluno.data_nascimento%></td>
                                 <td><%= aluno.celular%></td>
                                 <td class="data"><%= aluno.curso_id%></td>
-                                <td class="tabela-alunos">
+                                <td class="acoes">
                                     <a class="link-visu" href="/alunos/<%= aluno.id %>">Visualizar</a>
                                     <a class="link-edit" href="/alunos/editar/<%= aluno.id %>">Editar</a>
                                     <a class="link-del" href="/alunos/excluir/<%= aluno.id %>">Excluir</a>

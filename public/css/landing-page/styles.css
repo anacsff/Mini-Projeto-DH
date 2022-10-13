@@ -23,36 +23,7 @@ a{
 }
 
 
-/* Barra de navegação */
-#navbar{
-  width: 100%;
-  background: #2a2a2a;
-  color: #eee;  
-  height: 80px;
-  position: fixed;
-}
 
-#navbar-container{
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo{
-    font-size: 2rem;
-}
-#navbar-itens{
-    display: flex;
-    list-style: none;
-    text-transform: uppercase;
-}
-
-#navbar-itens li{
-    padding: 10px;
-    font-size: 1.1rem;
-}
 
 /* Banner */
 #banner{
@@ -203,16 +174,7 @@ a{
 
 /* footer */
 
-footer{
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: #2a2a2a;
-    color: #eee;
-    padding: 30px;
-    text-align: center;
-    font-size: 1.2rem;
-}
+
 
 
 @media (max-width: 1230px) {

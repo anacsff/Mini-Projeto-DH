@@ -1,7 +1,24 @@
+/* head */
+@import "./head-footer/head.css";
+/* footer */
+@import "./head-footer/footer.css";
+
 
 /* Landing page */
+
+
 @import "./landing-page/styles.css";
 
 
 /*Painel de alunos*/
 @import "./painel-alunos/styles.css";
+
+
+/* Criar nova matricula */
+@import "./aluno-create/styles.css";
+/* Visualizar aluno */
+@import "./aluno-read/styles.css";
+/* Atualizar matricula */
+@import "./aluno-update/styles.css";
+/* Excluir aluno */
+@import "./aluno-delete/styles.css";

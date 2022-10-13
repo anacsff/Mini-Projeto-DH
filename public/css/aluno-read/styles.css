@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+#visualizar{
+    /* display: flex; */
+    
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+#aluno-read{
+    /* display: flex; */
+    text-align: center;
+    width: 80vw;
+    background-color: #e5e5e5;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    position: relative;
+    top: 80px;
+
+
+}
+ 
+
+.iconefoto img{
+    justify-content: center;
+    position: relative;
+    height: 200px;
+    width: auto;
+    border-radius: 50%;
+    margin: 15px;
+}
+.info{
+    color: #1c2c50;
+    text-decoration: underline;
+    font-weight: bold;
+}
+ @media screen and (max-width: 768px){
+    #aluno-read{
+        top: 200px;
+        font-size: 0.9rem;
+    }
+    
+} 
