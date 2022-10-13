@@ -15,7 +15,7 @@
     </nav>
 
     <% if(locals.aluno){ %>
-        <div id="aluno-delete"></div>
+        <div id="aluno-delete">
             <div class="iconefotodel">
                 <h1>Deletar usuário</h1>
                 <img  src="/img/aluno.png" alt="" ">
@@ -43,15 +43,15 @@
                 <div>
                     <span class="info">Curso: </span>
                     <span><%= aluno.curso_id %></span>
+                    <form action="/alunos/excluir/<%= aluno.id %>?_method=delete" method="post">
+                    <h2 class="error-alert">Deseja deletar esse aluno?</h2>
+                    <a href="/alunos"><button type="button">Não</button></a>
+                    <button type="submit" class="delete-btn">Sim</button>
+                    </form>
             </div>
         </div>
-        <form action="/alunos/excluir/<%= aluno.id %>?_method=delete" method="post">
-        <h2 class="error-alert">Deseja deletar esse aluno?</h2>
-        <a href="/alunos"><button type="button">Não</button></a>
-        <button type="submit" class="delete-btn">Sim</button>
-        </form>
     <% } else {%>
-        <h2 class="error-alert">Usuário não encontrado por motivos do além</h2>
+       
     <% } %>
 </main>
 

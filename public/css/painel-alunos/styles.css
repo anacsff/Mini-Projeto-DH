@@ -55,11 +55,12 @@ td:hover{
 }
 #tabela-alunos{
     /* width: 80vw; */
-    position: relative;
+    position: absolute;
     top: 80px;
     /* display: flex; */
     flex-direction: column;
     justify-content: center;
+    margin: auto;
     
 }
 
@@ -68,6 +69,9 @@ td:hover{
     margin-top: 20px;
 }
 
+.container-tabela{
+    overflow-x: auto;
+}
 
 
 
@@ -92,23 +96,17 @@ td:hover{
 }
 
 @media screen and (max-width: 768px){
+    footer{
+        display: none;
+    }
     #tabela-alunos{
-        /* width: 80vw; */
-        position: relative;
+        width: 100vw;
         top: 220px;
     }
-    .container-tabela{
-        /* display: flex; */
-        /* justify-content: center; */
-        overflow-x: auto;
-    }
+    
 }
 @media (max-width: 1030px) {
-    .container-tabela{
-        /* display: flex; */
-        /* justify-content: center; */
-        overflow-x: auto;
-    }
+    
     
     
     .acoes{

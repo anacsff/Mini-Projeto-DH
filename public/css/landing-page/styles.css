@@ -188,39 +188,26 @@ a{
     }
 }
 
+footer{
+   display: none
+}
 
 @media screen and (max-width: 768px){
+
     #navbar{
         height: 220px;
-        position: static;
+        position: absolute;
         
         
         
     }
-
-    #navbar-container{
-        flex-direction: column;
-        padding: 20px 0;
-    }
-
-    #navbar-itens{
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-        font-size: 1rem;
-        
-    }
-
-    #navbar-itens li:nth-child(2) {
-        border-top: 1px solid #e5e5e5;
-        border-bottom: 1px solid #e5e5e5;
-    }
-
+    
     #banner{
-        top:0px;
+        top: 220px;
+        position: relative;
     }
     #cursos{
-        top: 0;
+        top: 220px;
     }
     /* .cursos-container{
         /* grid-template-columns: 1fr; */
@@ -244,9 +231,3 @@ a{
     }
 }
 
-/* @media (max-width: 1230px) and (min-width: 769px) {
-    .cursos-container{
-        
-        grid-template-columns: repeat(auto-fit, 345px);
-    }
-} */
