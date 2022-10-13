@@ -3,16 +3,16 @@
 
 
 <main>
-    <h1>Atualizar usuário</h1>
+    <h1>Atualizar matricula do aluno</h1>
     <% if(locals.error){ %>
     <h2 class="error-alert"><%= error.message %></h2>
     <% } %>
-    <form action="/aluno/editar/<%= aluno.id %>?_method=put" method="post" enctype="multipart/form-data">
+    <form action="/alunos/editar/<%= aluno.id %>?_method=put" method="post" enctype="multipart/form-data">
         <input value="<%= aluno.nome %>" type="text" name="nome" placeholder="Nome" />
         <input value="<%= aluno.email %>" type="email" name="sobrenome" placeholder="Sobrenome" />
-        <input value="<%= aluno.data_nascimento %>" type="email" name="email" placeholder="Email" />
-        <input value="<%= aluno.celular %>" type="number" name="idade" placeholder="Idade" />
-        <input value="<%= aluno.curso_id %>" type="number" name="idade" placeholder="Idade" />
+        <input value="<%= aluno.data_nascimento %>" type="date" name="data_nascimento"  />
+        <input value="<%= aluno.celular %>" type="tel" name="celular" placeholder="Numero do celular" />
+        <input value="<%= aluno.curso_id %>" type="number" name="curso_id" placeholder="Idade" />
        
         <button type="submit">Atualizar</button>
     </form>

@@ -13,9 +13,9 @@
         <span><%= aluno.curso_id %></span>
 
         </div>
-        <form action="/aluno/delete/<%= aluno.id %>?_method=delete" method="post">
+        <form action="/alunos/excluir/<%= aluno.id %>?_method=delete" method="post">
         <h2 class="error-alert">Deseja deletar esse aluno?</h2>
-        <a href="/aluno"><button type="button">Não</button></a>
+        <a href="/alunos"><button type="button">Não</button></a>
         <button type="submit">Sim</button>
         </form>
     <% } else {%>

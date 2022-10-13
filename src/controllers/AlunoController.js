@@ -40,7 +40,7 @@ const alunoController = {
         }
     },
     show: async (req, res) => {
-        const {nome, email, data_nascimento, celular, curso_id} = req.body;
+        // const {nome, email, data_nascimento, celular, curso_id} = req.body;
         const {id} = req.params;
         try {
             //RAW QUERY
@@ -73,7 +73,7 @@ const alunoController = {
 
         }
     },
-  
+   
     store: async (req, res) => {
         const { nome, email, data_nascimento, celular, curso_id } = req.body;
         try {
@@ -96,13 +96,13 @@ const alunoController = {
             
             res.status(201).json({message: "Aluno matriculado com sucesso!"});
             console.log(alunos);
-            return res.render("aluno-create", {title: "Matricular novo aluno"});
+            
 
         } catch (error) {
             res.status(400).json({ message: "Erro ao matricular aluno"});
         }
     },
-  
+    
     update: async (req, res) => {
         const { nome, email, data_nascimento, celular, curso_id} = req.body;
         const {id} = req.params;
@@ -138,7 +138,7 @@ const alunoController = {
             //     type: Sequelize.QueryTypes.UPDATE,
             // });
 
-            const alunos = await Aluno.update({
+            const aluno = await Aluno.update({
                 nome, 
                 email,
                 data_nascimento,
@@ -147,10 +147,9 @@ const alunoController = {
             },{
                 where: {id},
             });
-            console.log(alunos);
+            console.log(aluno);
             
-            // res.status(200).json({message: "Matricula alterada com sucesso!"});
-            return res.render("aluno-edit", {title: "Editar informações", alunos})
+            res.status(200).json({message: "Matricula alterada com sucesso!"});
 
         } catch (error) {
             console.log(error);
@@ -174,7 +173,6 @@ const alunoController = {
             });
             console.log(alunos);
             res.status(200).json({ message: "Aluno deletado com sucesso!" });
-            return res.render("aluno-delete", {title: "Excluir aluno", alunos})
 
             } catch (error) {
             console.log(error);
@@ -183,5 +181,36 @@ const alunoController = {
             
         
     },
+    create: async (req,res)=>{
+        
+        return res.render("aluno-create", {title: "Matricular novo aluno"});
+    },
+    edit: async (req,res)=>{
+        const { id } = req.params;
+        try {
+        
+        const aluno = await Aluno.findOne({
+            where: {
+            id: id,
+            },
+        });
+        return res.render("aluno-edit", {title: "Editar informações", aluno})
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({message: "Erro ao alterar matricula do aluno"});
+    }
+
+    },
+    delete: async (req,res) => {
+        const {id} = req.params;
+        const aluno = await Aluno.destroy({
+            where: {
+                id,
+            },
+        });
+        return res.render("aluno-delete", {title: "Excluir aluno", aluno})
+
+    },
+
 };
 module.exports = alunoController;
