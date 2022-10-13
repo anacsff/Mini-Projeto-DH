@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require('path')
 const port = 3000;
 const methodOverride = require("method-override");
 const indexRoute = require("./src/routes/indexRoute");
@@ -11,7 +12,8 @@ app.use(express.static(__dirname + "/public"));
 //Configuração do template engine(ejs)
 app.set("view engine", "ejs");
 //Configuração do caminho das views
-app.set("views", __dirname + "/src/views");
+// app.set("views", __dirname + "/src/views");
+app.set("views", path.join(__dirname, "/src/views"));
 //Configuração para alterar métodos de requisição
 app.use(methodOverride("_method"));
 //Converter o body em objeto literal
@@ -20,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/", indexRoute);
-app.use("/area-do-professor", alunoRoute);
+app.use("/alunos", alunoRoute);
 
 
 

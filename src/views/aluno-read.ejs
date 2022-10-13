@@ -1,0 +1,22 @@
+<%- include("./partials/head") %>
+<!-- <%- include("./partials/header") %> -->
+
+<main>
+    <h1>Visualizar matrícula do aluno</h1>
+    <% if(locals.aluno){ %>
+        <div>
+        <img src="/public/img/aluno.png" alt="">
+        <span><%= aluno.nome %> </span>
+        <span><%= aluno.email %></span>
+        <span><%= aluno.data_nascimento %></span>
+        <span><%= aluno.celular %></span>
+        <span><%= aluno.curso_id %></span>
+
+        
+        </div>
+    <% } else {%>
+        <h2 class="error-alert">Usuário não encontrado por motivos do além</h2>
+    <% } %>
+</main>
+
+<%- include("./partials/footer") %>

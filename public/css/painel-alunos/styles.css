@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+table, th, td{
+    border: 1px solid #2a2a2a;
+    /* border-collapse: collapse; */
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 10px 15px;
+    margin: 5px;
+}
+th{
+    background-color: #1c2c50;
+    color: white;
+}
+td:hover{
+    background-color: #e5e5e5;
+    
+    color: #1c2c50;
+}
+
+.data{
+    text-align: center;
+}
+#painel{
+    display: flex;
+    justify-content: center;
+}
+#botao{
+    position: relative;
+    display: flex;
+    justify-content: end;
+
+}
+
+.novo-aluno{
+    background-color: #1c2c50;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    right: 200px;
+
+
+}
+#tabela-alunos{
+    width: 80vw;
+    position: relative;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#tabela-alunos h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container-tabela{
+    display: flex;
+    justify-content: center;
+    /* position: absolute; */
+}
+
+.link-visu{
+    background-color: #557cd8;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.link-edit{
+    background-color: #00aa74;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.link-del{
+    background-color: #f36f0a;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+
+}

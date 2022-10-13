@@ -1,0 +1,30 @@
+<%- include("./partials/head") %>
+<!-- <%- include("./partials/header") %> -->
+
+
+<main>  
+    <div class="container">
+        <h1 class="">Matricular novo aluno</h1>
+        <!-- <% if(locals.error) { %>
+          <h2 class="">
+            <%= error.message %>
+          </h2>
+          <% } %> -->
+            <form action="/product-adm/product-create" method="POST">
+              <input class="form-control" type="text" name="name" placeholder="Name">
+              <input class="form-control" type="email" name="email"
+                placeholder="email">
+              <input class="form-control" type="date" name="data_nascimento"
+              <input class="form-control" type="tel" name="celular" placeholder="Telefone Celular">
+              <input class="form-control" type="number" name="curso_id">
+            
+            
+
+              <button type="submit" class="">Salvar</button>
+            </form>
+      </div>
+    
+</main>
+
+
+<%- include("./partials/footer") %>

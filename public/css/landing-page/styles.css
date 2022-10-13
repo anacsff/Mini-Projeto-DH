@@ -51,7 +51,7 @@ a{
 
 #navbar-itens li{
     padding: 10px;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 /* Banner */
@@ -204,6 +204,9 @@ a{
 /* footer */
 
 footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
     background-color: #2a2a2a;
     color: #eee;
     padding: 30px;
