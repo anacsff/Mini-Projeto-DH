@@ -6,9 +6,9 @@ router.get("/editar/:id", alunoController.edit)
 router.get("/", alunoController.index);
 router.get("/:id", alunoController.show);
 router.get("/criar", alunoController.create)
+router.post("/criar", alunoController.store);
 router.get("/excluir/:id", alunoController.delete)
 
-router.post("/criar", alunoController.store);
 
 router.put("/editar/:id", alunoController.update)
 router.patch("/editar/:id", alunoController.update)
